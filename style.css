@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap");
+
+html,
+body {
+	box-sizing: border-box;
+	min-height: 100vh;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+.wrapper {
+	//ancho que define la linea de progreso
+	width: 800px;
+}
+
+h2 {
+	--color-light: pink;
+	--color-dark: red;
+	--color-base: white;
+	--border: 0.5em;
+	position: relative;
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 2rem;
+	text-transform: uppercase;
+	border-bottom: var(--border) solid var(--color-base);
+	color: var(--color-light);
+}
+
+h2::before {
+	position: absolute;
+	content: attr(loading-text);
+	color: var(--color-dark);
+	// Importante la propiedad overflow
+	overflow: hidden;
+	border-bottom: var(--border) solid var(--color-dark);
+	animation: loading 5s linear infinite;
+}
+
+@keyframes loading {
+	0% {
+		width: 0;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
